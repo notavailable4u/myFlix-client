@@ -27329,7 +27329,7 @@ const MainView = ()=>{
             id: 1,
             title: "The Shawshank Redemption",
             description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-            imagePath: "shawshank.png",
+            imagePath: "the-shawshank-redemption.jpg",
             genre: "Drama",
             director: "Frank Darabont"
         },
@@ -27383,7 +27383,7 @@ const MainView = ()=>{
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "NvaxDQUgNY4eEfCgRAtVqqDIHXA=");
+_s(MainView, "CrnXFpYVx3tcCr7YlQG89cdHK8c=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27493,7 +27493,7 @@ const MovieView = ({ movie, onBackClick })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.image
+                    src: movie.imagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 9,
