@@ -1,35 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-export const MainView = () => {
-    const [movies] = useState([
-        {
-            id: 1,
-            title: "The Shawshank Redemption",
-            description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-            imagePath: "the-shawshank-redemption.jpg",
-            genre: "Drama",
-            director: "Frank Darabont"
-        },
-        {
-            id: 2,
-            title: "Pulp Fiction",
-            description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-            imagePath: "pulpfiction.png",
-            genre: "Crime",
-            director: "Quentin Tarantino"
-        },
-        {
-            id: 3,
-            title: "Inception",
-            description: "Description of movie goes here.",
-            imagePath: "inception.png",
-            genre: "Science Fiction",
-            director: "Christopher Nolan"
-        },
-    ]); 
 
+export const MainView = () => {
+    const [movies, setMovies] = useState([]); 
     const [selectedMovie, setSelectedMovie] = useState(null);
+
+    useEffect(( )=> {
+      fetch("https://movie-api-ptng-d305c73322c3.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.map((movie) => {
+          return {
+          id: movie._id,
+          title: movie.Title,
+          image: movie.ImagePath,
+          description: movie.Description,
+          director: movie.Director.Name,
+          genre: movie.Genre.Name
+          };
+        });
+        setMovies(moviesFromApi);
+      });
+    }, []);
 
     if (selectedMovie) {
       return (
@@ -47,9 +40,9 @@ export const MainView = () => {
           <MovieCard
             key={movie.id}
             movie={movie}
-            onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }}
+            //description={movie.Description}
+            onMovieClick={(newSelectedMovie) => 
+              setSelectedMovie(newSelectedMovie)}
           />
         ))}
       </div>
