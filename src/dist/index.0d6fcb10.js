@@ -27184,7 +27184,7 @@ var _react = require("react");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _loginView = require("../login-view/login-view");
-var _signupView = require("../signup-View/signup-view");
+var _signupView = require("../signup-view/signup-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
@@ -27311,7 +27311,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../login-view/login-view":"9YtA0","../signup-View/signup-view":"l3nA0"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27345,7 +27345,8 @@ const MovieCard = ({ movie, onMovieClick })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.image
+                    src: movie.image,
+                    alt: `${movie.title} Movie Poster`
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 11,
@@ -28353,7 +28354,8 @@ const MovieView = ({ movie, onBackClick })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.image
+                    src: movie.image,
+                    alt: `${movie.title} Movie Poster`
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 9,
@@ -28562,11 +28564,11 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"l3nA0":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$f48f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4OGiN":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f48f.prelude(module);
+$parcel$ReactRefreshHelpers$73d1.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -28615,13 +28617,13 @@ const SignupView = ()=>{
                         required: true,
                         minLength: "5"
                     }, void 0, false, {
-                        fileName: "src/components/signup-View/signup-view.jsx",
+                        fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 39,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/signup-View/signup-view.jsx",
+                fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 37,
                 columnNumber: 7
             }, undefined),
@@ -28635,13 +28637,13 @@ const SignupView = ()=>{
                         required: true,
                         minLength: "8"
                     }, void 0, false, {
-                        fileName: "src/components/signup-View/signup-view.jsx",
+                        fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 49,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/signup-View/signup-view.jsx",
+                fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 47,
                 columnNumber: 7
             }, undefined),
@@ -28654,13 +28656,13 @@ const SignupView = ()=>{
                         onChange: (e)=>setEmail(e.target.value),
                         required: true
                     }, void 0, false, {
-                        fileName: "src/components/signup-View/signup-view.jsx",
+                        fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 59,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/signup-View/signup-view.jsx",
+                fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 57,
                 columnNumber: 7
             }, undefined),
@@ -28673,13 +28675,13 @@ const SignupView = ()=>{
                         onChange: (e)=>setBirthday(e.target.value),
                         required: true
                     }, void 0, false, {
-                        fileName: "src/components/signup-View/signup-view.jsx",
+                        fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 68,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/signup-View/signup-view.jsx",
+                fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 66,
                 columnNumber: 7
             }, undefined),
@@ -28687,13 +28689,13 @@ const SignupView = ()=>{
                 type: "submit",
                 children: "Submit"
             }, void 0, false, {
-                fileName: "src/components/signup-View/signup-view.jsx",
+                fileName: "src/components/signup-view/signup-view.jsx",
                 lineNumber: 75,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "src/components/signup-View/signup-view.jsx",
+        fileName: "src/components/signup-view/signup-view.jsx",
         lineNumber: 36,
         columnNumber: 5
     }, undefined);
@@ -28703,11 +28705,11 @@ _c = SignupView;
 var _c;
 $RefreshReg$(_c, "SignupView");
 
-  $parcel$ReactRefreshHelpers$f48f.postlude(module);
+  $parcel$ReactRefreshHelpers$73d1.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"lJZlQ":[function() {},{}]},["LPu3H","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}]},["LPu3H","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.0d6fcb10.js.map
