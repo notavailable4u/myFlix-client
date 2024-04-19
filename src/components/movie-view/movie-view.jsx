@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Image from 'react-bootstrap/Image';
+import { Card } from "react-bootstrap";
+import {Stack} from "react-bootstrap";
 
 
 export const MovieView = ({ movies }) => {
@@ -15,14 +18,24 @@ export const MovieView = ({ movies }) => {
     <Container fluid="md">
       <Row className="justify-content-md-center">
         <Col md={8}>
-          <h3>Title: {movie.title}</h3>
-          <img src={movie.image} alt={`${movie.title} Movie Poster`} className="w-100" />
-          <h4>Description: {movie.description}</h4>
-          <h4>Genre: {movie.genre}</h4>
-          <h4>Director: {movie.director}</h4>
-          <Link to={`/`}>
-            <Button variant="primary" size="lg" className="back-button">Back</Button>
+        <Card style={{ width: '100%' }}>
+            <Card.Header as="h3">{movie.title}</Card.Header>
+            <Card.Body>
+              <Stack direction="horizontal" gap={3}>
+                <div><Image src={movie.image} alt={`${movie.title} Movie Poster`} rounded /></div>
+                <div>
+                  <Card.Text as="h4">Director: {movie.director}</Card.Text>
+                  <Card.Text as="h4">Genre: {movie.genre}</Card.Text>
+                  </div>
+              </Stack>
+              <Card.Text as="h4">Description: {movie.description}</Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-center">
+            <Link to={`/`}>
+            <Button variant="primary" size="lg" className="back-button">Back to Movie List</Button>
           </Link>
+            </Card.Footer>
+          </Card>
         </Col>
       </Row>
     </Container>
