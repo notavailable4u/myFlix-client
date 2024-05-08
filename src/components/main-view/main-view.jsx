@@ -45,6 +45,7 @@ export const MainView = () => {
     <BrowserRouter>
       <NavigationBar
         user={user}
+        movies={movies}
         onLoggedOut={() => {
           setUser(null);
           setToken(null);
@@ -109,7 +110,7 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                 ) : (
                   <Col md={8}>
-                  <ProfileView user={user} token={token} />
+                  <ProfileView user={user} token={token} movies={movies}  onSubmit={(user) => setUser(user)} />
                   </Col>
                 )}
               </>
@@ -128,6 +129,7 @@ export const MainView = () => {
                     {movies.map((movie) => (
                       <Col className="mb-5" key={movie.id} md={3}>
                         <MovieCard
+                        isFavorite={user.FavoriteMovies.includes(movie.id)}
                           movie={movie} />
                       </Col>
                     ))}

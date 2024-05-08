@@ -5,62 +5,28 @@ import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from 'react-bootstrap/Table';
-import { useEffect } from "react";
 
 import { UpdateUser } from "./update-user";
-import { MovieCard } from "../movie-card/movie-card";
+//import { FavoriteView } from "../favorite-view/favorite-view";
+import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ token, user, onSubmit }) => {
+export const ProfileView = ({ token, user, movies, onSubmit }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    const [username, setUsername] = useState(user.UserName);
+    const [username, setUsername] = useState(user.Username);
     const [email, setEmail] = useState(user.Email);
-    const [birthday, setBirthday] = useState(user.Birthday);
-    const [password, setPassword] = useState("");
-    const [movies, setMovies] = useState([]);
+    // const [birthday, setBirthday] = useState(user.Birthday);
+    // const [password, setPassword] = useState("");
 
-    useEffect(() => {
-        if (!token) {
-          return;
-        }
-        fetch("https://movie-api-ptng-d305c73322c3.herokuapp.com/movies", {
-          headers: { Authorization: `Bearer ${token}` }
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            const moviesFromApi = data.map((movie) => {
-              return {
-                id: movie._id,
-                title: movie.Title,
-                image: movie.ImagePath,
-                description: movie.Description,
-                director: movie.Director.Name,
-                genre: movie.Genre.Name
-              };
-            });
-            localStorage.setItem("movies", JSON.stringify(moviesFromApi));
-            setMovies(moviesFromApi);
-          });
-      }, [token]);
-  
-    const favoriteMovies = user.FavoriteMovies
-
-  function findFavoriteMovies(movies, favoriteMovies) {
-    return movies.filter(movie => favoriteMovies.includes(movie.id));
-  }
-
-const favoriteMoviesView = findFavoriteMovies(movies, favoriteMovies);
-console.log(favoriteMoviesView);
+    const favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie.id));
+    console.log("favoriteMovies=", favoriteMovies)
+    console.log("user.FavoriteMovies=", user.FavoriteMovies)
    
-  
-
     const formData = {
-        UserName: username,
-        Email: email,
-        Password: password
+        Username: username,
+        Email: email
     };
 
-    formData.Birthday = birthday ? new Date(birthday).toISOString().substring(0, 10) : null;
+    //formData.Birthday = birthday ? new Date(birthday).toISOString().substring(0, 10) : null;
 
     const handleSubmit = (event) => {
         event.preventDefault(event);
@@ -83,6 +49,7 @@ console.log(favoriteMoviesView);
             })
             .then((data) => {
                 localStorage.setItem("user", JSON.stringify(data));
+                //setStoredUser(data);
                 onSubmit(data);
             })
             .catch((error) => {
@@ -98,12 +65,12 @@ console.log(favoriteMoviesView);
             case "email":
                 setEmail(e.target.value);
                 break;
-            case "password":
-                setPassword(e.target.value);
-                break;
-            case "date":
-                setBirthday(e.target.value);
-                break;
+            // case "password":
+            //     setPassword(e.target.value);
+            //     break;
+            // case "date":
+            //     setBirthday(e.target.value);
+            //     break;
             default:
         }
     }
@@ -140,19 +107,21 @@ console.log(favoriteMoviesView);
                                 <tbody>
                                     <tr>
                                         <td>Username: </td>
-                                        <td>{user.Username}</td>
+                                        {/* <td>{user.Username}</td> */}
+                                        <td>{username}</td>
                                     </tr>
                                     <tr>
                                         <td>Email: </td>
-                                        <td>{user.Email}</td>
+                                        {/* <td>{user.Email}</td> */}
+                                        <td>{email}</td>
                                     </tr>
-                                    <tr>
+                                    {/* <tr>
                                         <td>Date of Birth:</td>
                                         <td>{new Date(user.Birthday).toDateString()}</td>
-                                    </tr>
+                                    </tr> */}
                                 </tbody>
                             </Table>
-                            <Card.Text>Use the Update Profile form located on this page to change any of your profile information. Only fill out the fields which pertain to the information you wish to change. Any information you wish to remain the same, leave the field unchanged.</Card.Text>
+                            <Card.Text>Use the Update Profile form located on this page to change any of your profile information. </Card.Text>
                             <Card.Text>Use the DELETE ACCOUNT button below to close your account. This action cannot be undone.</Card.Text>
                         </Card.Body>
                         <Card.Footer className="text-center">
@@ -169,19 +138,8 @@ console.log(favoriteMoviesView);
                 </Col>
             </Row>
             <Row>
-                <Col><h2>Favorite Movies</h2></Col>
-                </Row>
-                <Row>
-                {favoriteMoviesView.map((movie) => (
-                      <Col key={movie.id}>
-
-                        <MovieCard
-                          movie={movie} />
-                      </Col>
-                    ))}
+                <Col> <FavoriteMovies user={user} favoriteMovies={favoriteMovies} /></Col>
             </Row>
-           
         </Container >
     );
 };
-

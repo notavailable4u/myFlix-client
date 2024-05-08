@@ -10,6 +10,7 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
         <Card>
             <Card.Header as="h2">Update Profile</Card.Header>
             <Card.Body>
+                <Card.Text>Only fill out the fields which pertain to the information you wish to change. Any information you wish to remain the same, leave the field unchanged.</Card.Text>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formUsername">
                     <Form.Label>Username</Form.Label>
@@ -24,7 +25,7 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                         <Form.Text id="usernameHelpBlock">Username must be a minimum of 5 characters (letters and /or numbers) and contain at least 1 capital letter.</Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formPassword">
+                    {/* <Form.Group className="mb-3" controlId="formPassword">
                        <Form.Label>Password</Form.Label>
                             <Form.Control
                                 type="password"
@@ -35,7 +36,7 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                                 aria-describedby="passwordHelpBlock"
                             />
                             <Form.Text id="passwordHelpBlock">Password must be a minimum of 8 characters in length, contain at least 1 number and 1 letter, and cannot use any special characters or punctuation marks.</Form.Text>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group className="mb-3" controlId="formEmail">
                        <Form.Label>Email</Form.Label>
@@ -47,7 +48,7 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                             />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBirthday">
+                    {/* <Form.Group className="mb-3" controlId="formBirthday">
                         <Form.Label>Birthday</Form.Label>
                             <Form.Control
                                 type="date"
@@ -55,9 +56,10 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                                 onChange={(e) => handleUpdate(e)}
                                 placeholder="Enter new date of birth here."
                             />
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit">Update</Button>
+                    </Form.Group> */}
+                    <Card.Footer className="text-center">
+                    <Button variant="primary"  type="submit">Update</Button>
+                    </Card.Footer>
                 </Form>
             </Card.Body>
         </Card>
