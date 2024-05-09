@@ -31,7 +31,7 @@ export const LoginView = ({onLoggedIn}) => {
         localStorage.setItem("token", data.token);
         onLoggedIn(data.user, data.token);
       } else {
-        alert("No such user");
+        alert("Bad username or password.");
       }
     })
     .catch((e) => {
@@ -40,7 +40,7 @@ export const LoginView = ({onLoggedIn}) => {
   }
 
   return (
-    <Container style={{border: "3px solid SeaGreen"}} className="py-2">
+    <Container style={{border: "3px solid SeaGreen", borderRadius: "5px"}} className="py-2">
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formUsername" className="mb-3" >
         <Form.Label>Username:</Form.Label>
@@ -62,9 +62,7 @@ export const LoginView = ({onLoggedIn}) => {
           minLength="8"
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <Button type="submit">Login</Button>
     </Form>
     </Container>
   );

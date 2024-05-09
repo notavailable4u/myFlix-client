@@ -1,11 +1,19 @@
 $primary: SeaGreen;
 // $body-bg: Honeydew
 
-.card { cursor: pointer;}
-
+//Card
 .card:hover {
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 10px seagreen;
+  }
+
+  // Navbar
+  .navbar .navbar-nav .nav-link {
+    color: black;
+  }
+
+  .navbar .navbar-nav .nav-link:hover {
+    text-decoration-line: underline;
   }
 
 /* import bootstrap to set changes */
