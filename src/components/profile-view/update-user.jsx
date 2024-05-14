@@ -25,19 +25,6 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                         <Form.Text id="usernameHelpBlock">Username must be a minimum of 5 characters (letters and /or numbers) and contain at least 1 capital letter.</Form.Text>
                     </Form.Group>
 
-                    {/* <Form.Group className="mb-3" controlId="formPassword">
-                       <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                value={formData.Password}
-                                onChange={(e) => handleUpdate(e)}
-                                minLength="8"
-                                placeholder="Enter new password Here"
-                                aria-describedby="passwordHelpBlock"
-                            />
-                            <Form.Text id="passwordHelpBlock">Password must be a minimum of 8 characters in length, contain at least 1 number and 1 letter, and cannot use any special characters or punctuation marks.</Form.Text>
-                    </Form.Group> */}
-
                     <Form.Group className="mb-3" controlId="formEmail">
                        <Form.Label>Email</Form.Label>
                             <Form.Control
@@ -47,16 +34,6 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
                                 placeholder="Enter new email here. Ex:name@example.com"
                             />
                     </Form.Group>
-
-                    {/* <Form.Group className="mb-3" controlId="formBirthday">
-                        <Form.Label>Birthday</Form.Label>
-                            <Form.Control
-                                type="date"
-                                value={formData.Birthday}
-                                onChange={(e) => handleUpdate(e)}
-                                placeholder="Enter new date of birth here."
-                            />
-                    </Form.Group> */}
                     <Card.Footer className="text-center">
                     <Button variant="primary"  type="submit">Update</Button>
                     </Card.Footer>

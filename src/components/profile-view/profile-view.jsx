@@ -7,15 +7,12 @@ import Col from "react-bootstrap/Col";
 import Table from 'react-bootstrap/Table';
 
 import { UpdateUser } from "./update-user";
-//import { FavoriteView } from "../favorite-view/favorite-view";
 import { FavoriteMovies } from "./favorite-movies";
 
 export const ProfileView = ({ token, user, movies, onSubmit }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [username, setUsername] = useState(user.Username);
     const [email, setEmail] = useState(user.Email);
-    // const [birthday, setBirthday] = useState(user.Birthday);
-    // const [password, setPassword] = useState("");
 
     const favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie.id));
     console.log("favoriteMovies=", favoriteMovies)
@@ -25,8 +22,6 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
         Username: username,
         Email: email
     };
-
-    //formData.Birthday = birthday ? new Date(birthday).toISOString().substring(0, 10) : null;
 
     const handleSubmit = (event) => {
         event.preventDefault(event);
@@ -49,7 +44,6 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
             })
             .then((data) => {
                 localStorage.setItem("user", JSON.stringify(data));
-                //setStoredUser(data);
                 onSubmit(data);
             })
             .catch((error) => {
@@ -65,18 +59,12 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
             case "email":
                 setEmail(e.target.value);
                 break;
-            // case "password":
-            //     setPassword(e.target.value);
-            //     break;
-            // case "date":
-            //     setBirthday(e.target.value);
-            //     break;
             default:
         }
     }
 
     const handleCancelAccount = () => {
-        // need to implement the API call to delete the user's account
+        // implement the API call to delete the user's account
         console.log("Canceling account...");
         fetch(`https://movie-api-ptng-d305c73322c3.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
@@ -96,7 +84,7 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
     };
 
     return (
-        <Container fluid className="py-2">
+        <Container >
             <Row>
                 <Col>
                     <Card border="primary" className="h-100" style={{ width: '100%' }}>
@@ -107,18 +95,12 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
                                 <tbody>
                                     <tr>
                                         <td>Username: </td>
-                                        {/* <td>{user.Username}</td> */}
                                         <td>{username}</td>
                                     </tr>
                                     <tr>
                                         <td>Email: </td>
-                                        {/* <td>{user.Email}</td> */}
                                         <td>{email}</td>
                                     </tr>
-                                    {/* <tr>
-                                        <td>Date of Birth:</td>
-                                        <td>{new Date(user.Birthday).toDateString()}</td>
-                                    </tr> */}
                                 </tbody>
                             </Table>
                             <Card.Text>Use the Update Profile form located on this page to change any of your profile information. </Card.Text>
@@ -138,8 +120,8 @@ export const ProfileView = ({ token, user, movies, onSubmit }) => {
                 </Col>
             </Row>
             <Row>
-                <Col> <FavoriteMovies user={user} favoriteMovies={favoriteMovies} /></Col>
+              <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
             </Row>
-        </Container >
+         </Container >
     );
 };

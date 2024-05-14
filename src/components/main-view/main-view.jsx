@@ -33,7 +33,9 @@ export const MainView = () => {
             image: movie.ImagePath,
             description: movie.Description,
             director: movie.Director.Name,
-            genre: movie.Genre.Name
+            directorBio: movie.Director.Bio,
+            genre: movie.Genre.Name,
+            genreDescription: movie.Genre.Description
           };
         });
         localStorage.setItem("movies", JSON.stringify(moviesFromApi));
@@ -41,6 +43,20 @@ export const MainView = () => {
       });
   }, [token]);
 
+// sort 'movies' alphabetically by movie.title
+ movies.sort(function (x, y) {
+    var titleX = x.title.toLowerCase();
+    var titleY = y.title.toLowerCase();
+    if (titleX < titleY) {
+        return -1;
+    }
+    if (titleX > titleY) {
+        return 1;
+    }
+    return 0;
+});
+
+ 
   return (
     <BrowserRouter>
       <NavigationBar
@@ -52,8 +68,9 @@ export const MainView = () => {
           localStorage.clear()
         }}
       />
-      <Row className="justify-content-md-center" >
+      <Row className="justify-content-md-center mt-md-1" >
         <Routes>
+           {/* SIGNUP */}
           <Route path="/signup"
             element={
               <>
@@ -69,6 +86,7 @@ export const MainView = () => {
               </>
             }
           />
+          {/* LOGIN */}
           <Route path="/login"
             element={
               <>
@@ -87,6 +105,7 @@ export const MainView = () => {
               </>
             }
           />
+           {/* SINGLE MOVIE VIEW */}
           <Route
             path="/movies/:movieId"
             element={
@@ -103,19 +122,21 @@ export const MainView = () => {
               </>
             }
           />
+           {/* PROFILE PAGE */}
           <Route path="/profile"
             element={
               <>
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : (
-                  <Col md={8}>
+                  <Col md={10}>
                   <ProfileView user={user} token={token} movies={movies}  onSubmit={(user) => setUser(user)} />
                   </Col>
                 )}
               </>
             }
           />
+           {/* MOVIE CARD - ALL MOVIES */}
           <Route
             path="/"
             element={

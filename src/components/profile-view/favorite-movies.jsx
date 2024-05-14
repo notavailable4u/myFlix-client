@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container';
+
 
 import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
@@ -9,12 +11,13 @@ import { MovieCard } from "../movie-card/movie-card";
 export const FavoriteMovies = ({user, favoriteMovies}) => {
     const numberOfMovies = favoriteMovies.length;
     return (
-      <Col className="mb-5">
-        <h3>Favorite Movies</h3>
-        <h4>Number of movies currently in your Favorite Movie List: {numberOfMovies} </h4>
+      <Container  className="mt-md-2">
+      <Col className="mb">
+        <h3 className="text-center">Favorite Movies</h3>
+        <h5 className="text-center">Current number of Favorite Movies: {numberOfMovies} </h5>
         <Row>
           {favoriteMovies.map((movie) => (
-            <Col key={movie.id} md={6}>
+            <Col key={movie.id} md={4} className="mb-5">
               <Link to={`/movies/${movie.id}`} />
               <MovieCard
                 key={movie.id}
@@ -25,6 +28,7 @@ export const FavoriteMovies = ({user, favoriteMovies}) => {
           ))}
         </Row>
       </Col>
+      </Container>
     );
   }
   FavoriteMovies.propTypes = {

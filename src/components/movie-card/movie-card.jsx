@@ -1,10 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { string } from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-//import FavoriteButton from "../favorite-view/favorite-button";
-// import FavoriteToggle from "../favorite-button/favorite-toggle";
 
 
 export const MovieCard = ({ movie, isFavorite }) => {
@@ -104,13 +102,12 @@ const handleAddToFavorites = () => {
       <Card.Body>
         <Card.Title as="h3" >{movie.title}</Card.Title>
         <Card.Text>DESCRIPTION: {movie.description}</Card.Text>
-        {/* <Card.Text><FavoriteToggle movieId={movie.id}/></Card.Text> */}
-        <Card.Title>{isFavorite ? ( 
+      </Card.Body>
+      <Card.Title className="text-center">{isFavorite ? ( 
       <Button variant="primary"  onClick={handleRemoveFromFavorites}>Remove from favorites</Button>
     ) : (
-      <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>  
+      <Button  variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>  
     )}</Card.Title>
-      </Card.Body>
       <Card.Footer className="text-center">
         <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
           <Button variant="primary" size="lg">View Details</Button>
@@ -129,6 +126,8 @@ MovieCard.propTypes = {
     description: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    directorBio:string.isRequired,
+    genreDescription:string.isRequired
   }).isRequired,
 };
