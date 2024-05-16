@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
+// import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ProfileView } from "../profile-view/profile-view";
+import AllMoviesView from "../all-movies-view/all-movies-view";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -147,13 +148,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movie) => (
-                      <Col className="mb-5" key={movie.id} md={3}>
-                        <MovieCard
-                        isFavorite={user.FavoriteMovies.includes(movie.id)}
-                          movie={movie} />
-                      </Col>
-                    ))}
+                    <AllMoviesView movies={movies} user={user} />
                   </>
                 )}
               </>
@@ -164,5 +159,3 @@ export const MainView = () => {
     </BrowserRouter>
   );
 };
-
-

@@ -9,6 +9,7 @@ import Table from 'react-bootstrap/Table';
 import { UpdateUser } from "./update-user";
 import { FavoriteMovies } from "./favorite-movies";
 
+
 export const ProfileView = ({ token, user, movies, onSubmit }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [username, setUsername] = useState(user.Username);
