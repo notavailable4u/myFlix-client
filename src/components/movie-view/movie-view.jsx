@@ -7,8 +7,6 @@ import Col from "react-bootstrap/Col";
 import Image from 'react-bootstrap/Image';
 import { Accordion, Card } from "react-bootstrap";
 
-//import { Stack } from "react-bootstrap";
-//import { Accordion } from "react-bootstrap";
 
 
 export const MovieView = ({ movies }) => {
