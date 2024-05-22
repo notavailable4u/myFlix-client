@@ -72,3 +72,5 @@ node_modules
 #Babel
 babel.config.json
 
+#Parcel dist
+**/src/dist
