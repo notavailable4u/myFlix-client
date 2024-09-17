@@ -1,8 +1,11 @@
 # Project Name: myFlix React app
 
 ## Project Description
-This project was created as part of the curriculum for the Full Stack Web Development Program at [Career Foundry](https://careerfoundry.com/en/courses/become-a-web-developer/). It is a client-side interface, built using the React library, for previously created server-side code (REST API and database) of a movie themed app named, "myFlix".
-Pre-existing code can be viewed here: (https://github.com/notavailable4u/movie_api-2)
+This project was created as part of the curriculum for the Full Stack Web Development Program at [Career Foundry](https://careerfoundry.com/en/courses/become-a-web-developer/).[^1] It is the client-side / Front-End User Interface, built using React and React-Bootstrap, for previously created server-side component of a movie themed MERN Single Page Application. Currently hosted on Netlify (https://movie-api-pgannon.netlify.app/login). 
+
+Pre-existing Server Side Back-End source code can be viewed here: (https://github.com/notavailable4u/movie_api-2)
+
+[^1]: If you are considering enrolling in the Full Stack Web Development Program at Career Foundry, I cannot strongly enough caution you to NOT ENROLL. The lessons are filled with so much deprecated code and blatant errors that it is criminal. Feel free to contact me if you would like more detailed information.
 
 ## Project Features and Views Requirements
 + Main View
@@ -50,4 +53,4 @@ The objective of the project, as stated in Project Brief provided by Career Foun
 + Express
 + React
 + Bootstrap 5
-+ Parcel
++ Parcel (We were required to use Parcel - though for the life of me I cannot understand why since it doesn't provide any functionality that React doesn't already provide.)
